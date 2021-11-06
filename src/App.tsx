@@ -20,7 +20,7 @@ const App = () => {
         <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
             <ThemeProvider theme={theme}>
                 <div className='wrap'>
-                    <span>REACT ASSEMBLY1</span>
+                    <span>REACT ASSEMBLY</span>
                 </div>
             </ThemeProvider>
         </LocalizationProvider>
