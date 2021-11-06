@@ -1,0 +1,74 @@
+.table {
+  height: calc(100vh - 5vh);
+  background: rgba(37, 38, 35, 0.4);
+  width: 100%;
+  max-width: 20vw;
+  position: absolute;
+  right: 0;
+  &__wrap {
+    padding: 3vh 2vw;
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+  }
+  &__title {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1vw;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: black;
+    font-family: OrbitronSemiBold, sans-serif;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 0;
+  }
+  &__player {
+    padding: 1.5vh 1.5vw;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0 1vw;
+    }
+    &-name {
+      z-index: 2;
+      font-size: 1vw;
+      color: #fff;
+      margin-right: 1vw;
+      font-family: KarlaRegular, sans-serif;
+    }
+    &-image {
+      z-index: 2;
+    }
+    &-score {
+      z-index: 2;
+      font-size: 1vw;
+      color: #fff;
+      font-family: KarlaRegular, sans-serif;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

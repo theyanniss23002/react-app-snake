@@ -2,8 +2,6 @@
 
 * {
     box-sizing: border-box;
-    font-family: georama_light, sans-serif;
-    font-size: 3vw;
 }
 
 html,
@@ -21,6 +19,39 @@ body {
 }
 
 body {
+    background: #e1eec3;
+    background: -webkit-linear-gradient(to right, #f05053, #e1eec3);
+    background: linear-gradient(to right, #f05053, #e1eec3);
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #0f9b0f, #000000);
+    background: linear-gradient(to right, #0f9b0f, #000000);
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #fff;
+    animation: gradient 15s ease-in-out infinite;
+    background-size: 400% 400%;
+    font: 100%/1.5 sans-serif;
     overflow: hidden;
     position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
