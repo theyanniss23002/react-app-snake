@@ -1,0 +1,9 @@
+{
+  "component": {
+    "componentFolder": "src",
+    "testFiles": "**/*spec.{ts,tsx}"
+  },
+  "env": {
+    "base_url": "http://localhost:3000/"
+  }
+}

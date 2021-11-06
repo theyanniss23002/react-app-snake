@@ -1,0 +1,46 @@
+//Georama font family
+@font-face {
+    font-family: 'georama_thin';
+    src: local('Georama_Thin'), url('../fonts/Georama/Georama_Thin.ttf') format('truetype');
+    font-weight: auto;
+}
+
+@font-face {
+    font-family: 'georama_light';
+    src: local('Georama_Light'), url('../fonts/Georama/Georama_Light.ttf') format('truetype');
+    font-weight: auto;
+}
+
+@font-face {
+    font-family: 'georama_regular';
+    src: local('Georama_Regular'), url('../fonts/Georama/Georama_Regular.ttf') format('truetype');
+    font-weight: auto;
+}
+
+@font-face {
+    font-family: 'georama_bold';
+    src: local('Georama_Bold'), url('../fonts/Georama/Georama_Bold.ttf') format('truetype');
+    font-weight: auto;
+}
+
+//Nanum Gothic font family
+@font-face {
+    font-family: 'nanum_gothic_regular';
+    src: local('Nanum_Gothic_Regular'),
+        url('../fonts/Nanum_Gothic/Nanum_Gothic_Regular.ttf') format('truetype');
+    font-weight: auto;
+}
+
+@font-face {
+    font-family: 'nanum_gothic_bold';
+    src: local('Nanum_Gothic_Bold'),
+        url('../fonts/Nanum_Gothic/Nanum_Gothic_Bold.ttf') format('truetype');
+    font-weight: auto;
+}
+
+@font-face {
+    font-family: 'nanum_gothic_exatra_bold';
+    src: local('Nanum_Gothic_Extra_Bold'),
+        url('../fonts/Nanum_Gothic/Nanum_Gothic_Extra_Bold.ttf') format('truetype');
+    font-weight: auto;
+}
