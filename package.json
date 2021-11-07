@@ -44,6 +44,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "deploy": "react-scripts build && firebase deploy",
+        "precommit": "lint-staged",
         "test-ui": "cypress open --config integrationFolder=src,testFiles=**/*.component.spec.tsx,video=false",
         "test": "./node_modules/.bin/cypress run --browser chrome --config integrationFolder=src,testFiles=**/*.component.spec.tsx,video=false"
     },
