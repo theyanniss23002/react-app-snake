@@ -6,7 +6,7 @@ import './styles/common.scss';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Score from './components/Score';
-import Arena from './components/Arena/index'
+import Arena from './components/Arena/index';
 import HighScoreTable from './components/HighScoreTable';
 
 const theme = createTheme({
