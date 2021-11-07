@@ -26,7 +26,6 @@ const App = () => {
                     <Score />
                     <Arena />
                     <HighScoreTable />
-                    <span>1</span>
                 </div>
             </ThemeProvider>
         </LocalizationProvider>
