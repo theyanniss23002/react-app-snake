@@ -1,7 +1,13 @@
 import React from 'react';
-import { ITest } from '../Core';
+import './style.scss';
 
-const StartGameButton: React.FC<ITest> = ({ isPlaying, gameOver, startGame }: ITest) => {
+export interface IStartGame {
+    isPlaying?: boolean;
+    gameOver?: boolean;
+    startGame?: any;
+}
+
+const StartGameButton: React.FC<IStartGame> = ({ isPlaying, gameOver, startGame }: IStartGame) => {
     return (
         <button className='start__btn' onClick={startGame}>
             {!isPlaying && !gameOver && 'Start Game'}

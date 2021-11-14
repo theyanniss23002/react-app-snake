@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import UseInterval from '../../hooks/UseInterval';
 import './style.scss';
-import gameOverImage from '../../images/game_over.svg';
 import Arena from '../Arena';
 import { useDispatch, useSelector } from 'react-redux';
 import { CANVAS_SIZE, SCALE, MAX_POINTS } from '../../helpers/constants';
@@ -33,18 +32,6 @@ export interface RootState {
         gameOver: boolean;
         hasFinishedGame: boolean;
     };
-}
-
-export interface ITest {
-    score?: number;
-    start_snake_coordinates?: ICoords[];
-    food?: ICoords;
-    speed?: null;
-    direction?: ICoords;
-    isPlaying?: boolean;
-    gameOver?: boolean;
-    hasFinishedGame?: boolean;
-    startGame?: any;
 }
 
 const Core = () => {
@@ -135,8 +122,8 @@ const Core = () => {
                 <>
                     {hasFinishedGame ? (
                         <>
-                            <p className='finished-game'>Congratulations</p>
-                            <p>Your score: {score}</p>
+                            <span className='caps-text'>YOUR WIN</span>
+                            <span className='caps-text'>Your score: {score}</span>
                             <StartGameButton
                                 startGame={startGame}
                                 gameOver={gameOver}
@@ -145,13 +132,8 @@ const Core = () => {
                         </>
                     ) : (
                         <>
-                            {gameOver && (
-                                <img
-                                    className='game-over'
-                                    src={gameOverImage}
-                                    alt='isGamOverImage'
-                                />
-                            )}
+                            <span className='caps-text'>THE GAME OF SNAKE</span>
+                            {gameOver && <span className='game-over'>GAME OVER</span>}
                             <StartGameButton
                                 startGame={startGame}
                                 gameOver={gameOver}

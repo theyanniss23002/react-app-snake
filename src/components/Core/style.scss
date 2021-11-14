@@ -4,46 +4,12 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
-}
-.canvas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #668C4A;
     position: relative;
 }
 
-.start__btn {
-    border: 0;
-    outline: none;
-    padding: 6vh 8vw;
-    background: transparent;
-    cursor: pointer;
+.caps-text {
     font-size: 4vw;
-    color: #668C4A;
-    transition: .3s;
-    &:hover {
-        background: #ffffff;
-        opacity: 0.3;
-        transition: .3s;
-    }
-}
-
-.game-over {
-    width: 20vw;
-}
-
-.points {
-    position: absolute;
-    bottom: 0;
-    right: 1rem;
-    font-size: 2rem;
-}
-
-.finished-game {
-    position: absolute;
-    top: 60px;
-    font-size: 5rem;
-    color: red;
-    text-decoration: underline;
+    padding: 1vh;
+    color: rgba(46, 49, 49, 1);
+    font-family: OrbitronSemiBold, sans-serif;
 }

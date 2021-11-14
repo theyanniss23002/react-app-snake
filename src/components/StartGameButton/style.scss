@@ -1,0 +1,16 @@
+.start__btn {
+    border: 0;
+    outline: none;
+    padding: 1vh 8vw;
+    background: transparent;
+    cursor: pointer;
+    font-size: 4vw;
+    color: rgba(145, 61, 136, 1);
+    transition: .3s;
+    font-family: OrbitronSemiBold, sans-serif;
+    &:hover {
+        background: #ffffff;
+        opacity: 0.3;
+        transition: .3s;
+    }
+}
