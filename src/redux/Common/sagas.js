@@ -1,12 +1,12 @@
 import { all, put, call, takeLatest } from 'redux-saga/effects';
 import api from './api.methods';
 import * as types from './types';
-import * as action from './actions';
+import * as actions from './actions';
 
 function* loadCharactersSaga() {
     const response = yield call(api.getCharacters);
     if (response?.status === 200) {
-        yield put(action.loadedCharacters(response?.data));
+        yield put(actions.loadedCharacters(response?.data));
     }
 }
 

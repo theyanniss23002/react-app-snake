@@ -5,9 +5,7 @@ import { ThemeProvider } from '@mui/styles';
 import './styles/common.scss';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import Score from './components/Score';
-import Arena from './components/Arena/index';
-import HighScoreTable from './components/HighScoreTable';
+import Core from './components/Core';
 
 const theme = createTheme({
     palette: {
@@ -23,9 +21,7 @@ const App = () => {
         <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
             <ThemeProvider theme={theme}>
                 <div className='wrap'>
-                    <Score />
-                    <Arena />
-                    <HighScoreTable />
+                    <Core />
                 </div>
             </ThemeProvider>
         </LocalizationProvider>

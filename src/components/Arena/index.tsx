@@ -1,64 +1,87 @@
-import React, { useState } from 'react';
-import './arena.scss';
+import React, { useEffect } from 'react';
+import { CANVAS_SIZE, DIRECTIONS, SCALE } from '../../helpers/constants';
+import { ICoords } from '../Core';
+import { setDirection } from '../../redux/Common/actions';
+import { useDispatch } from 'react-redux';
 
-const Arena = () => {
-    const initialState = {
-        gridLength: 100,
-        grid: [],
-        isFood: 0
-    };
+// type RefWrapper<T> = HTMLDivElement | ((instance: T) => any);
+// type RefCanvas<T> = HTMLCanvasElement | ((instance: T) => any);
 
-    const grid = Array(initialState.gridLength)
-        .fill('')
-        .map((_, i) => {
-            return { id: i, isFood: false };
-        });
+interface IArena {
+    direction: ICoords;
+    score: number;
+    gameOver: boolean;
+    wrapperRef?: any;
+    canvasRef?: any;
+    start_snake_coordinates: ICoords[];
+    food: ICoords;
+}
 
-    const [data, setData] = useState({ ...initialState, grid: grid });
-    const [openGrid, setOpenGrid] = useState(false);
+const Arena = React.forwardRef(
+    ({
+        direction,
+        score,
+        gameOver,
+        wrapperRef,
+        canvasRef,
+        start_snake_coordinates,
+        food
+    }: IArena) =>
+        // wrapperRef: RefWrapper<any>,
+        // canvasRef: RefCanvas<any>
+        {
+            const dispatch = useDispatch();
 
-    const generateFood = () => {
-        const randomIndex = Math.floor(
-            Math.random() * (data?.grid.length - 1 + 1)
-        );
-        if (data?.grid.length) {
-            const arrWithFood = grid.map((item, i) => {
-                if (i === randomIndex) {
-                    return { ...item, isFood: true };
+            const moveSnake = (event: React.KeyboardEvent) => {
+                const { key } = event;
+                if (
+                    key === 'ArrowUp' ||
+                    key === 'ArrowDown' ||
+                    key === 'ArrowRight' ||
+                    key === 'ArrowLeft'
+                ) {
+                    if (direction.x + DIRECTIONS[key].x && direction.y + DIRECTIONS[key].y) {
+                        dispatch(setDirection(DIRECTIONS[key]));
+                    }
                 }
-                return item;
-            });
-            setData({ ...data, grid: arrWithFood });
+            };
+
+            useEffect(() => {
+                const context = canvasRef.current?.getContext('2d');
+                if (context) {
+                    context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+                    context.clearRect(0, 0, CANVAS_SIZE.x, CANVAS_SIZE.y);
+                    context.fillStyle = 'green';
+                    start_snake_coordinates.forEach(({ x, y }) => context.fillRect(x, y, 1, 1));
+                    context.fillStyle = 'red';
+                    context.fillRect(food.x, food.y, 1, 1);
+                }
+            }, [start_snake_coordinates, food]);
+
+            return (
+                <>
+                    <p className='points'>{score}</p>
+                    <div
+                        ref={wrapperRef}
+                        className='canvas'
+                        role='button'
+                        tabIndex={0}
+                        onKeyDown={(event: React.KeyboardEvent) => moveSnake(event)}
+                    >
+                        <canvas
+                            style={
+                                gameOver
+                                    ? { border: '1px solid black', opacity: 0.5 }
+                                    : { border: '1px solid black' }
+                            }
+                            ref={canvasRef}
+                            width={CANVAS_SIZE.x}
+                            height={CANVAS_SIZE.y}
+                        />
+                    </div>
+                </>
+            );
         }
-    };
-
-    const handleOpenGrid = () => {
-        setOpenGrid(true);
-        generateFood();
-    };
-
-    const gridItems = data.grid.map((item) => {
-        return (
-            <div
-                key={item.id}
-                className={item.isFood ? 'grid-item is-food' : 'grid-item'}
-            />
-        );
-    });
-
-    return (
-        <>
-            {openGrid ? (
-                <div className='container'>
-                    <div className='grid'>{gridItems}</div>
-                </div>
-            ) : (
-                <button className='start__btn' onClick={handleOpenGrid}>
-                    START GAME
-                </button>
-            )}
-        </>
-    );
-};
+);
 
 export default Arena;
