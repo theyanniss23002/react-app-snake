@@ -4,7 +4,7 @@ import './style.scss';
 import Arena from '../Arena';
 import { useDispatch, useSelector } from 'react-redux';
 import { CANVAS_SIZE, SCALE, MAX_POINTS } from '../../helpers/constants';
-import StartGameButton from '../StartGameButton';
+import PreviewGame from '../PreiewGame';
 import {
     setFood,
     setGameOver,
@@ -28,10 +28,11 @@ export interface RootState {
         food: ICoords;
         speed: null;
         direction: ICoords;
-        isPlaying: boolean;
-        gameOver: boolean;
-        hasFinishedGame: boolean;
+        is_playing?: boolean;
+        has_finished_game: boolean;
+        game_over?: boolean;
     };
+    startGame?: () => void;
 }
 
 const Core = () => {
@@ -43,17 +44,16 @@ const Core = () => {
         food,
         speed,
         direction,
-        isPlaying,
-        gameOver,
-        hasFinishedGame
+        is_playing,
+        game_over,
+        has_finished_game
     } = useSelector((common: RootState) => common.common);
 
-    const wrapperRef = useRef<HTMLDivElement>(null);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const wrapper_ref = useRef<HTMLDivElement>(null);
 
     function startGame() {
         dispatch(resetGame());
-        wrapperRef.current?.focus();
+        wrapper_ref.current?.focus();
     }
 
     const endGame = () => {
@@ -113,42 +113,25 @@ const Core = () => {
     UseInterval(() => gameLoop(), speed);
 
     useEffect(() => {
-        wrapperRef.current?.focus();
-    }, [isPlaying]);
+        wrapper_ref.current?.focus();
+    }, [is_playing]);
 
     return (
         <div className='wrapper'>
-            {gameOver || !isPlaying ? (
-                <>
-                    {hasFinishedGame ? (
-                        <>
-                            <span className='caps-text'>YOUR WIN</span>
-                            <span className='caps-text'>Your score: {score}</span>
-                            <StartGameButton
-                                startGame={startGame}
-                                gameOver={gameOver}
-                                isPlaying={isPlaying}
-                            />
-                        </>
-                    ) : (
-                        <>
-                            <span className='caps-text'>THE GAME OF SNAKE</span>
-                            {gameOver && <span className='game-over'>GAME OVER</span>}
-                            <StartGameButton
-                                startGame={startGame}
-                                gameOver={gameOver}
-                                isPlaying={isPlaying}
-                            />
-                        </>
-                    )}
-                </>
+            {game_over || !is_playing ? (
+                <PreviewGame
+                    startGame={startGame}
+                    game_over={game_over}
+                    is_playing={is_playing}
+                    score={score}
+                    has_finished_game={has_finished_game}
+                />
             ) : (
                 <Arena
                     direction={direction}
                     score={score}
-                    gameOver={gameOver}
-                    wrapperRef={wrapperRef}
-                    canvasRef={canvasRef}
+                    game_over={game_over}
+                    wrapper_ref={wrapper_ref}
                     start_snake_coordinates={start_snake_coordinates}
                     food={food}
                 />

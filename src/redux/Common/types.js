@@ -1,8 +1,16 @@
 import moduleName from './module';
 const prefix = `${moduleName}`;
 
-export const LOAD_CHARACTERS = `${prefix}/LOAD/CHARACTERS`;
-export const LOADED_CHARACTERS = `${prefix}/LOADED/CHARACTERS`;
+//PLAYERS
+export const LOAD_PLAYERS = `${prefix}/LOAD/PLAYERS`;
+export const LOADING_PLAYERS = `${prefix}/LOADING/PLAYERS`;
+export const LOADED_PLAYERS = `${prefix}/LOADED/PLAYERS`;
+export const CREATE_PLAYER = `${prefix}/CREATE/PLAYER`;
+export const UPDATE_PLAYER = `${prefix}/UPDATE/PLAYER`;
+//IP
+export const LOAD_IP = `${prefix}/LOAD/IP`;
+export const LOADED_IP = `${prefix}/LOADED/IP`;
+
 //SCORE
 export const SET_SCORE = `${prefix}/SET/SCORE`;
 //SNAKE_START

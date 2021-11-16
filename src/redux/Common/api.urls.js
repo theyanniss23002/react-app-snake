@@ -1,8 +1,10 @@
-const marvel_api = () => `https://gateway.marvel.com:443/`;
+const airtable_api = () => `https://api.airtable.com/v0/appYvuZ1oL4JpsCfV`;
+const ip_api = () => `https://geolocation-db.com/json`;
 
 const apiUrls = {
-    getCharacters: () =>
-        `${marvel_api()}/v1/public/characters?apikey=17344f605a6f1caecd4354aa4c5158e7`
+    getPlayers: () => `${airtable_api()}/Users`,
+    createPlayer: () => `${airtable_api()}/Users/`,
+    getIp: () => `${ip_api()}/json`
 };
 
 export default apiUrls;

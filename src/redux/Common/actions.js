@@ -1,12 +1,38 @@
 import * as types from './types';
 
-export const loadCharacters = () => ({
-    type: types.LOAD_CHARACTERS
+//PLAYERS
+export const loadPlayers = () => ({
+    type: types.LOAD_PLAYERS
 });
 
-export const loadedCharacters = (data) => ({
-    type: types.LOADED_CHARACTERS,
+export const loadedPlayers = (data) => ({
+    type: types.LOADED_PLAYERS,
     payload: data
+});
+
+export const createPlayer = (data) => ({
+    type: types.CREATE_PLAYER,
+    payload: data
+});
+
+export const updatePlayer = (id, data) => ({
+    type: types.UPDATE_PLAYER,
+    payload: { id, data }
+});
+
+//IP
+export const loadIp = () => ({
+    type: types.LOAD_IP
+});
+
+export const loadedIp = (ip) => ({
+    type: types.LOADED_IP,
+    payload: ip
+});
+
+export const loadingPlayers = (bool = false) => ({
+    type: types.LOADING_PLAYERS,
+    payload: bool
 });
 //SCORE
 export const setScore = (score) => ({
@@ -34,19 +60,19 @@ export const setDirection = (direction) => ({
     payload: direction
 });
 //IS_PLAYING
-export const setIsPlaying = (isPlaying = false) => ({
+export const setIsPlaying = (is_playing = false) => ({
     type: types.SET_IS_PLAYING,
-    payload: isPlaying
+    payload: is_playing
 });
 //GAME_OVER
-export const setGameOver = (gameOver = false) => ({
+export const setGameOver = (game_over = false) => ({
     type: types.SET_GAME_OVER,
-    payload: gameOver
+    payload: game_over
 });
 //SET_HAS_FINISHED_GAME
-export const setHasFinishedGame = (finishedGame = false) => ({
+export const setHasFinishedGame = (finished_game = false) => ({
     type: types.SET_HAS_FINISHED_GAME,
-    payload: finishedGame
+    payload: finished_game
 });
 //RESET_GAME
 export const resetGame = () => ({

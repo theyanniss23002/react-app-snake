@@ -2,24 +2,26 @@ import * as types from './types';
 import { APPLE_START, DIRECTION_START, SNAKE_START, SPEED } from '../../helpers/constants';
 
 const initialState = {
-    characters: {},
+    players: [],
+    loading_players: false,
+    user_ip: '',
     score: 0,
     start_snake_coordinates: SNAKE_START,
     food: APPLE_START,
     speed: null,
     direction: DIRECTION_START,
-    isPlaying: false,
-    gameOver: false,
-    hasFinishedGame: false
+    is_playing: false,
+    game_over: false,
+    has_finished_game: false
 };
 
 export default function reducer(state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
-        case types.LOADED_CHARACTERS:
+        case types.LOADED_PLAYERS:
             return {
                 ...state,
-                characters: payload
+                players: payload
             };
         case types.SET_SCORE:
             return {
@@ -49,27 +51,37 @@ export default function reducer(state = initialState, action) {
         case types.SET_IS_PLAYING:
             return {
                 ...state,
-                isPlaying: payload
+                is_playing: payload
             };
         case types.SET_GAME_OVER:
             return {
                 ...state,
-                gameOver: payload
+                game_over: payload
             };
         case types.SET_HAS_FINISHED_GAME:
             return {
                 ...state,
-                hasFinishedGame: payload
+                has_finished_game: payload
             };
         case types.RESET_GAME:
             return {
                 score: 0,
-                isPlaying: true,
+                is_playing: true,
                 start_snake_coordinates: SNAKE_START,
                 food: APPLE_START,
                 direction: DIRECTION_START,
                 speed: SPEED,
-                hasFinishedGame: false
+                has_finished_game: false
+            };
+        case types.LOADING_PLAYERS:
+            return {
+                ...state,
+                loading_players: payload
+            };
+        case types.LOADED_IP:
+            return {
+                ...state,
+                user_ip: payload
             };
         default:
             return state;
