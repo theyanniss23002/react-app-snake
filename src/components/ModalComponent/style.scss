@@ -1,0 +1,140 @@
+.modal {
+    background: rgba(37, 38, 35, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding: 4vw 4vw 1vw 4vw;
+    &__title {
+        text-align: center;
+        font-family: OrbitronSemiBold, sans-serif;
+        font-size: 2vw;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        padding-top: 3vh;
+        &-item {
+            margin: 0.4vh 0;
+            padding: 1.2vh 0;
+        }
+    }
+    &__button {
+        border: 0;
+        font-size: 1.5vw;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 0;
+        transition: .3s;
+        padding: 1vh 1vw;
+        font-family: OrbitronSemiBold, sans-serif;
+        &:hover {
+            background: #ffffff;
+            opacity: 0.3;
+            transition: .3s;
+        }
+        &-wrap {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 4vh;
+        }
+    }
+}
+
+.send {
+    color: rgba(145, 61, 136, 1);
+}
+
+.close {
+    color: rgba(37, 38, 35, 0.9);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+input {
+    font-size: 1.2vw;
+    font-family: OrbitronSemiBold, sans-serif;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+input:focus {
+    outline:none;
+}
+
+label {
+    color: #999;
+    font-size: 1vw;
+    font-family: OrbitronSemiBold, sans-serif;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+
+.label-disabled {
+    top: -30px;
+    color: rgba(145, 61, 136, 1);
+}
+
+input:focus ~ label, input:valid ~ label {
+    top:-40px;
+    font-size: 1vw;
+    color: rgba(145, 61, 136, 1);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before, .bar:after 	{
+    content:'';
+    height:2px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:rgba(145, 61, 136, 1);
+    transition:0.2s ease all;
+    -moz-transition:0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+
+.bar:before {
+    left:50%;
+}
+
+.bar:after {
+    right:50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width:50%;
+}

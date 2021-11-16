@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     circular: {
-        width: '2%',
+        width: '3%',
         height: '3%',
         margin: 'auto',
         position: 'absolute',
@@ -20,10 +20,10 @@ const Loading = ({ linear = false, circular = false }) => {
     const classes = useStyles();
     return (
         <>
-            {linear && <LinearProgress />}
+            {linear && <LinearProgress color='inherit' />}
             {circular && (
                 <div className={classes.circular}>
-                    <CircularProgress />
+                    <CircularProgress color='secondary' />
                 </div>
             )}
         </>
