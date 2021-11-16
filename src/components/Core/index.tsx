@@ -75,11 +75,11 @@ const Core = () => {
             while (checkCollision(newApple, newSnake)) {
                 newApple = createRandomApple();
             }
-            dispatch(setScore(score + 1));
             if (score === MAX_POINTS) {
                 dispatch(setHasFinishedGame(true));
                 endGame();
             }
+            if (!game_over) dispatch(setScore(score + 1));
             dispatch(setFood(newApple));
             return true;
         }
