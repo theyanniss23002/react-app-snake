@@ -1,8 +1,8 @@
 import { Dialog } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPlayer, loadIp } from '../../redux/Common/actions';
+import { createPlayer } from '../../redux/Common/actions';
 
 export interface IModalStore {
     common: {
