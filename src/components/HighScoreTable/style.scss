@@ -1,7 +1,7 @@
 .table {
     height: 100vh;
     margin-top: 5vh;
-    max-height: 50vh;
+    max-height: 40vh;
     background: rgba(37, 38, 35, 0.5);
     width: 100%;
     max-width: 50vw;
@@ -19,15 +19,15 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        height: 50vh;
-        max-height: 50vh;
+        height: 40vh;
+        max-height: 40vh;
         overflow-y: scroll;
     }
     &__title {
         width: 100%;
         text-align: center;
         color: #fff;
-        font-size: 2vw;
+        font-size: 1.5vw;
         text-transform: uppercase;
         text-decoration: underline;
         text-decoration-color: black;
@@ -39,11 +39,10 @@
         padding: 1vh 0;
     }
     &__player {
-        padding: 1.5vh 1.5vw;
+        padding: 0.5vh 1vw;
         position: relative;
         z-index: 1;
         display: flex;
-        flex-direction: column;
         align-items: flex-start;
         margin: 1vh 0;
         &:before {
@@ -57,14 +56,14 @@
         }
         &-name {
             z-index: 2;
-            font-size: 2vw;
+            font-size: 1.5vw;
             color: #fff;
             margin-right: 1vw;
             font-family: KarlaRegular, sans-serif;
         }
         &-score {
             z-index: 2;
-            font-size: 2vw;
+            font-size: 1.5vw;
             color: #fff;
             font-family: KarlaRegular, sans-serif;
         }
