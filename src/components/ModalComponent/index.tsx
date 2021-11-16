@@ -47,9 +47,9 @@ const ModalComponent: React.FC<IModal> = ({ isOpen, onClose }: IModal) => {
         onClose();
     };
 
-    useEffect(() => {
-        dispatch(loadIp());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(loadIp());
+    // }, [dispatch]);
 
     return (
         <Dialog open={isOpen} onClose={onClose} fullWidth={false}>
