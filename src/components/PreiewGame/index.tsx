@@ -43,6 +43,10 @@ const PreviewGame: React.FC<IStatusGame> = ({
                         is_playing={is_playing}
                     />
                     <HighScoreTable />
+                    <span className='warning'>
+                        It is strongly recommended to disable ad blockers for the game to work
+                        properly.
+                    </span>
                 </>
             )}
         </>
