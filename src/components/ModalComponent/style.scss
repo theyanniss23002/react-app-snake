@@ -57,13 +57,13 @@
 
 .group {
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: 4vh;
 }
 
 .highlight {
     position: absolute;
     height: 60%;
-    width: 100px;
+    width: 10vw;
     top: 25%;
     left: 0;
     pointer-events: none;
@@ -73,11 +73,11 @@
 input {
     font-size: 1.2vw;
     font-family: OrbitronSemiBold, sans-serif;
-    padding: 10px 10px 10px 5px;
+    padding: 1vh 1vw 1vh 1vw;
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #757575;
+    border-bottom: 0.4vw solid #757575;
 }
 
 input:focus {
@@ -88,23 +88,24 @@ label {
     color: #999;
     font-size: 1vw;
     font-family: OrbitronSemiBold, sans-serif;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:5px;
-    top:10px;
-    transition:0.2s ease all;
-    -moz-transition:0.2s ease all;
-    -webkit-transition:0.2s ease all;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0.5vw;
+    top: 1vh;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
 }
 
 .label-disabled {
     top: -3vh;
+    left: 0.5vw;
     color: rgba(145, 61, 136, 1);
 }
 
 input:focus ~ label, input:valid ~ label {
-    top:-40px;
+    top: -2.6vh;
     font-size: 1vw;
     color: rgba(145, 61, 136, 1);
 }
@@ -117,9 +118,9 @@ input:focus ~ label, input:valid ~ label {
 
 .bar:before, .bar:after 	{
     content:'';
-    height:2px;
+    height: 0.5vh;
     width:0;
-    bottom:1px;
+    bottom: 0;
     position:absolute;
     background:rgba(145, 61, 136, 1);
     transition:0.2s ease all;

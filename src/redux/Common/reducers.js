@@ -4,7 +4,6 @@ import { APPLE_START, DIRECTION_START, SNAKE_START, SPEED } from '../../helpers/
 const initialState = {
     players: [],
     loading_players: false,
-    user_ip: '',
     score: 0,
     start_snake_coordinates: SNAKE_START,
     food: APPLE_START,
@@ -77,11 +76,6 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 loading_players: payload
-            };
-        case types.LOADED_IP:
-            return {
-                ...state,
-                user_ip: payload
             };
         default:
             return state;

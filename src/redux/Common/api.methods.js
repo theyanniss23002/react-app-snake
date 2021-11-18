@@ -12,10 +12,6 @@ const ApiMainMethods = {
         });
         return response?.data;
     },
-    getIp: async () => {
-        const response = await instance.get(apiUrls.getIp());
-        return response?.data.IPv4;
-    },
     createPlayer: async (data) => {
         const response = await instance.post(apiUrls.createPlayer(), data, {
             headers: {

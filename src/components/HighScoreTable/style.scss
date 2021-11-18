@@ -15,18 +15,15 @@
         color: #fff;
     }
     &__wrap {
-        padding: 3vh 2vw;
+        padding: 3vh 2vw 0 2vw;
         display: flex;
         flex-direction: column;
-        position: relative;
-        height: 40vh;
-        max-height: 40vh;
-        overflow-y: scroll;
     }
     &__title {
         width: 100%;
         text-align: center;
         color: #fff;
+        margin-bottom: 1vh;
         font-size: 1.5vw;
         text-transform: uppercase;
         text-decoration: underline;
@@ -37,6 +34,10 @@
         display: flex;
         flex-direction: column;
         padding: 1vh 0;
+        position: relative;
+        height: 37vh;
+        max-height: 37vh;
+        overflow-y: scroll;
     }
     &__player {
         padding: 0.5vh 1vw;
@@ -67,17 +68,5 @@
             color: #fff;
             font-family: KarlaRegular, sans-serif;
         }
-    }
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
     }
 }

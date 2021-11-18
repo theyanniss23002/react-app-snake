@@ -20,16 +20,6 @@ export const updatePlayer = (id, data) => ({
     payload: { id, data }
 });
 
-//IP
-export const loadIp = () => ({
-    type: types.LOAD_IP
-});
-
-export const loadedIp = (ip) => ({
-    type: types.LOADED_IP,
-    payload: ip
-});
-
 export const loadingPlayers = (bool = false) => ({
     type: types.LOADING_PLAYERS,
     payload: bool

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { RefObject, useEffect, useRef } from 'react';
 import { CANVAS_SIZE, DIRECTIONS, SCALE } from '../../helpers/constants';
 import { ICoords } from '../Core';
 import { setDirection } from '../../redux/Common/actions';
@@ -9,8 +9,8 @@ interface IArena {
     direction: ICoords;
     score: number;
     game_over?: boolean;
-    wrapper_ref?: any;
-    canvas_ref?: any;
+    wrapper_ref?: RefObject<HTMLDivElement>;
+    canvas_ref?: null;
     start_snake_coordinates: ICoords[];
     food: ICoords;
 }

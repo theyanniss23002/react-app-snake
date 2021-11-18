@@ -12,13 +12,6 @@ function* loadPlayersSaga() {
     yield put(actions.loadingPlayers(false));
 }
 
-function* loadIpSaga() {
-    const response = yield call(api.getIp);
-    if (response) {
-        yield put(actions.loadedIp(response));
-    }
-}
-
 function* createPlayerSaga({ payload }) {
     const response = yield call(api.createPlayer, payload);
     if (response?.createdTime) {
@@ -29,7 +22,6 @@ function* createPlayerSaga({ payload }) {
 export default function* saga() {
     yield all([
         takeLatest(types.LOAD_PLAYERS, loadPlayersSaga),
-        takeLatest(types.LOAD_IP, loadIpSaga),
         takeLatest(types.CREATE_PLAYER, createPlayerSaga)
     ]);
 }

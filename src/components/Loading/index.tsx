@@ -1,12 +1,11 @@
 import React from 'react';
 import { CircularProgress, LinearProgress } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     circular: {
-        width: '3%',
-        height: '3%',
+        width: '1vw',
+        height: '1vh',
         margin: 'auto',
         position: 'absolute',
         top: 0,
@@ -16,7 +15,12 @@ const useStyles = makeStyles({
     }
 });
 
-const Loading = ({ linear = false, circular = false }) => {
+interface ILoading {
+    linear?: boolean;
+    circular?: boolean;
+}
+
+const Loading = ({ linear = false, circular = false }: ILoading) => {
     const classes = useStyles();
     return (
         <>
@@ -28,11 +32,6 @@ const Loading = ({ linear = false, circular = false }) => {
             )}
         </>
     );
-};
-
-Loading.propTypes = {
-    linear: PropTypes.bool,
-    circular: PropTypes.bool
 };
 
 export default Loading;
